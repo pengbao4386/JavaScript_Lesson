@@ -6,4 +6,6 @@ function * gen(){
     yield 2;
     yield 3;
 }
-console.log(gen());
+let gen_generator = gen();
+let v = gen_generator.next();
+console.log(v.value);
