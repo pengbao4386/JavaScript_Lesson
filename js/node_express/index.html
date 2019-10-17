@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>node_express</title>
+</head>
+
+<body>
+
+    <!-- get方式测试 -->
+    <p>get方式测试</p>
+    <form action="http://127.0.0.1:3000/process_get" method="GET">
+        First Name: <input type="text" name="first_name"> <br>
+
+        Last Name: <input type="text" name="last_name">
+        <input type="submit" value="Submit">
+    </form>
+
+    <br>
+
+    <!-- post方式测试 -->
+    <p>post方式测试</p>
+    <form action="http://127.0.0.1:3000/process_post" method="POST">
+        First Name: <input type="text" name="first_name"> <br>
+
+        Last Name: <input type="text" name="last_name">
+        <input type="submit" value="Submit">
+    </form>
+
+    <br>
+
+    <!-- 文件上传 -->
+    <h3>文件上传：</h3>
+    选择一个文件上传: <br />
+    <!-- enctype就是encodetype就是编码类型的意思 multipart/form-data是指表单数据有多部分构成，既有文本数据，又有文件等二进制数据的意思-->
+    <!-- 默认情况下，enctype的值是application/x-www-form-urlencoded，不能用于文件上传，只有使用了multipart/form-data，才能完整的传递文件数据 -->
+    <form action="/file_upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="input_file" size="50" />
+        <br />
+        <input type="submit" value="上传文件" />
+    </form>
+
+</body>
+
+</html>
