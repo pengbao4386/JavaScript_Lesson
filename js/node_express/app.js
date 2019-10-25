@@ -33,8 +33,12 @@ app.get('/', function (req, res) {
 
  //c#winform调用服务
  app.get('/advtree',function(req,res){
+
+     //获取get请求的查询参数
+     console.log(req.query);
+
      let str = "";
-     let count = 50000;
+     let count = 500000;
      for(i = 0; i < count; i++){
          
         if(i  == count-1){
@@ -45,6 +49,28 @@ app.get('/', function (req, res) {
      }
      console.log('调用服务: http://localhost:3000/advtree');
      res.send(str);
+});
+
+app.post('/advtreepost',function(req,res){
+
+    //获取post请求的查询参数
+    req.on('data',function(data){
+		let obj=JSON.parse(data);
+		console.log(obj);
+    });
+    
+    let str = "";
+    let count = 500000;
+    for(i = 0; i < count; i++){
+        
+       if(i  == count-1){
+           str += '\"value_'+i+'\"';
+       }else{
+           str += '\"value_'+i+'\",';
+       }
+    }
+    console.log('调用服务: http://localhost:3000/advtree');
+    res.send(str);
 });
 
  //index.html服务实例

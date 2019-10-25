@@ -23,16 +23,15 @@ sheets.forEach(function (sheet) {
     for (let i = 2; i < sheet["data"].length; i++) { //excel文件里的表格一般有标题所以不一定从0开始
         let row = sheet['data'][i];
         if (row && row.length > 0) {
-            if (row[12].indexOf('测绘') != -1 &&
-                row[13].indexOf('硕士') != -1
-                // && row[16].indexOf('无限制') != -1 
-                &&
+            if (row[12].indexOf('教育') != -1 &&
+                row[13].indexOf('硕士') != -1 &&
+                row[16].indexOf('无限制') != -1 &&
                 row[17].indexOf('无限制') != -1 &&
                 row[20].indexOf('北京') != -1) {
                 //将查询结果写入TXT文件中
-                console.log("准备写入文件..................");
+                console.log("=====================准备写入文件=====================");
                 fs.appendFileSync(resultFilePath, '\n' + row + '\n');
-                // console.log(row);
+                console.log(row);
             }
         }
     }
